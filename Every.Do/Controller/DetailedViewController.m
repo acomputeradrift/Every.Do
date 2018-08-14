@@ -19,14 +19,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.titleLabel.text = self.toDo.title;
+    self.priorityLabel.text = [NSString stringWithFormat:@"%ld",(long)self.toDo.priority];
+    self.descriptionLabel.text = self.toDo.toDoDescription;
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    self.titleLabel.text = self.toDo.title;
-    self.priorityLabel.text = @"self.toDo.priority";
-    self.descriptionLabel.text = self.toDo.toDoDescription;
+   
     
     //set the 
     // Dispose of any resources that can be recreated.
