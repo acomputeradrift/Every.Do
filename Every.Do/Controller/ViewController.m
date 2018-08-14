@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Todo.h"
 #import "ToDoTableViewCell.h"
+#import "DetailedViewController.h"
 
 @interface ViewController ()
 
@@ -77,6 +78,19 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.taskArray.count;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //get the index path, get toDo object for that path and pass to detailed view controller
+    //ToDetailsPage
+    if ([segue.identifier isEqualToString:@"ToDetailsPage"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Todo *toDo = self.taskArray[indexPath.row];
+        DetailedViewController  *detailedViewController = segue.destinationViewController;
+        detailedViewController.toDo = toDo;
+       
+    }
+    
 }
 
 
