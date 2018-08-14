@@ -30,6 +30,7 @@
     
     
     
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -39,7 +40,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     //ToDoTableViewCell
@@ -52,6 +55,21 @@
     cell.titleLabel.text = toDo.title;
     cell.descriptionLabel.text = toDo.toDoDescription;
     cell.priorityLabel.text = [NSString stringWithFormat:@"%li", (long)toDo.priority];
+        switch (toDo.priority) {
+            case 1:
+                cell.titleLabel.textColor = [UIColor redColor];
+                break;
+            case 2:
+                cell.titleLabel.textColor = [UIColor orangeColor];
+                break;
+            case 3:
+                cell.titleLabel.textColor = [UIColor greenColor];
+                break;
+            default:
+                cell.titleLabel.textColor = [UIColor blackColor];
+                break;
+        }
+    
     
     // Tell the tableView to use this cell
     return cell;
