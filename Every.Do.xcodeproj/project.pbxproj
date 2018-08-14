@@ -15,6 +15,8 @@
 		7D69D30A212352D200B9C73B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69D309212352D200B9C73B /* main.m */; };
 		7D69D314212352D200B9C73B /* Every_DoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69D313212352D200B9C73B /* Every_DoTests.m */; };
 		7D69D31F212352D200B9C73B /* Every_DoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69D31E212352D200B9C73B /* Every_DoUITests.m */; };
+		7D69D32E2123538800B9C73B /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69D32D2123538800B9C73B /* Todo.m */; };
+		7D69D33121235CA700B9C73B /* ToDoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D69D33021235CA700B9C73B /* ToDoTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		7D69D31A212352D200B9C73B /* Every.DoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Every.DoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D69D31E212352D200B9C73B /* Every_DoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Every_DoUITests.m; sourceTree = "<group>"; };
 		7D69D320212352D200B9C73B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D69D32C2123538800B9C73B /* Todo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
+		7D69D32D2123538800B9C73B /* Todo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
+		7D69D32F21235CA700B9C73B /* ToDoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToDoTableViewCell.h; sourceTree = "<group>"; };
+		7D69D33021235CA700B9C73B /* ToDoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +109,10 @@
 			children = (
 				7D69D2FA212352D000B9C73B /* AppDelegate.h */,
 				7D69D2FB212352D000B9C73B /* AppDelegate.m */,
-				7D69D2FD212352D000B9C73B /* ViewController.h */,
-				7D69D2FE212352D000B9C73B /* ViewController.m */,
-				7D69D300212352D000B9C73B /* Main.storyboard */,
+				7D69D33321235CF500B9C73B /* Controller */,
+				7D69D33221235CE300B9C73B /* Model */,
+				7D69D33421235D1600B9C73B /* View */,
 				7D69D303212352D200B9C73B /* Assets.xcassets */,
-				7D69D305212352D200B9C73B /* LaunchScreen.storyboard */,
 				7D69D308212352D200B9C73B /* Info.plist */,
 				7D69D309212352D200B9C73B /* main.m */,
 			);
@@ -130,6 +135,43 @@
 				7D69D320212352D200B9C73B /* Info.plist */,
 			);
 			path = Every.DoUITests;
+			sourceTree = "<group>";
+		};
+		7D69D33221235CE300B9C73B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D69D32C2123538800B9C73B /* Todo.h */,
+				7D69D32D2123538800B9C73B /* Todo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D69D33321235CF500B9C73B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7D69D2FD212352D000B9C73B /* ViewController.h */,
+				7D69D2FE212352D000B9C73B /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7D69D33421235D1600B9C73B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D69D32F21235CA700B9C73B /* ToDoTableViewCell.h */,
+				7D69D33021235CA700B9C73B /* ToDoTableViewCell.m */,
+				7D69D33521235D2900B9C73B /* Storyboards */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D69D33521235D2900B9C73B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7D69D300212352D000B9C73B /* Main.storyboard */,
+				7D69D305212352D200B9C73B /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D69D33121235CA700B9C73B /* ToDoTableViewCell.m in Sources */,
 				7D69D2FF212352D000B9C73B /* ViewController.m in Sources */,
 				7D69D30A212352D200B9C73B /* main.m in Sources */,
 				7D69D2FC212352D000B9C73B /* AppDelegate.m in Sources */,
+				7D69D32E2123538800B9C73B /* Todo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
