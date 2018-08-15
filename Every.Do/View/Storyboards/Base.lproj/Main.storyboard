@@ -60,7 +60,6 @@
                                         <connections>
                                             <outlet property="descriptionLabel" destination="ujr-Ov-fqW" id="m3k-fY-tmw"/>
                                             <outlet property="titleLabel" destination="Py2-yR-kPv" id="2gL-ow-bSw"/>
-                                            <outletCollection property="gestureRecognizers" destination="l0a-eC-A9B" appends="YES" id="Ap1-GM-nyb"/>
                                             <segue destination="RTr-bm-r0x" kind="show" identifier="ToDetailsPage" id="BuG-kG-Xof"/>
                                         </connections>
                                     </tableViewCell>
@@ -68,6 +67,8 @@
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="CB0-3w-c1l"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Yec-Kg-DYl"/>
+                                    <outletCollection property="gestureRecognizers" destination="l0a-eC-A9B" appends="YES" id="zoj-fs-miT"/>
+                                    <outletCollection property="gestureRecognizers" destination="gVc-9A-9yL" appends="YES" id="QqA-Zz-AQl"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To.Do" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGT-qC-6kV">
@@ -115,9 +116,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="l0a-eC-A9B">
+                <swipeGestureRecognizer direction="right" id="l0a-eC-A9B" userLabel="Swipe Gesture Recognizer Right">
                     <connections>
                         <action selector="didSwipeRight:" destination="BYZ-38-t0r" id="Hzq-RS-hsY"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="gVc-9A-9yL" userLabel="Swipe Gesture Recognizer Left">
+                    <connections>
+                        <action selector="didSwipeLEft:" destination="BYZ-38-t0r" id="rt0-OD-u8O"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>

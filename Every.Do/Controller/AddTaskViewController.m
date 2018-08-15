@@ -29,7 +29,7 @@
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
-    Todo *toDo = [[Todo alloc] initWithTitle:self.titleTextField.text withDescription:self.descriptionText.text withPriority:[self.priorityTextField.text integerValue] andisCompleted:YES];
+    Todo *toDo = [[Todo alloc] initWithTitle:self.titleTextField.text withDescription:self.descriptionText.text withPriority:[self.priorityTextField.text integerValue] andisCompleted:NO];
     [self.delegate saveTask:toDo];
     [self.navigationController popViewControllerAnimated:YES];
 }

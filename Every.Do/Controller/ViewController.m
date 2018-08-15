@@ -60,6 +60,8 @@
     cell.titleLabel.text = toDo.title;
     cell.descriptionLabel.text = toDo.toDoDescription;
     cell.priorityLabel.text = [NSString stringWithFormat:@"%li", (long)toDo.priority];
+    cell.titleLabel.textColor = [UIColor blackColor];
+    cell.descriptionLabel.textColor = [UIColor blackColor];
     
     if (toDo.isCompleted == YES){
         cell.titleLabel.textColor = [UIColor lightGrayColor];
@@ -124,8 +126,15 @@
     // change the todo item
     [self.tableView reloadData];
     //reload tableview
-    
-    
+}
+- (IBAction)didSwipeLEft:(UISwipeGestureRecognizer *)sender {
+    CGPoint point = [sender locationInView:self.tableView];
+    NSIndexPath *index = [self.tableView indexPathForRowAtPoint:point];
+    // get the todo item from the array
+    Todo *toDo = self.taskArray[index.row];
+    toDo.isCompleted = NO;
+    // change the todo item
+    [self.tableView reloadData];
 }
 
 
