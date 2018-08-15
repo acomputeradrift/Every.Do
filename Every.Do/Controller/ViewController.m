@@ -13,6 +13,7 @@
 
 @interface ViewController ()
 
+
 @property (nonatomic, strong) NSMutableArray *taskArray;
 
 @end
@@ -50,12 +51,23 @@
     
     ToDoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ToDoTableViewCell"];
     NSInteger row = indexPath.row;
+    //if complete is yes all text is grey
     
+
+    //else
     // Set the label of the text
     Todo *toDo = self.taskArray[row];
     cell.titleLabel.text = toDo.title;
     cell.descriptionLabel.text = toDo.toDoDescription;
     cell.priorityLabel.text = [NSString stringWithFormat:@"%li", (long)toDo.priority];
+    
+    if (toDo.isCompleted == YES){
+        cell.titleLabel.textColor = [UIColor lightGrayColor];
+        cell.descriptionLabel.textColor = [UIColor lightGrayColor];
+        cell.priorityLabel.textColor = [UIColor lightGrayColor];
+    }else{
+    
+   
         switch (toDo.priority) {
             case 1:
                 cell.titleLabel.textColor = [UIColor redColor];
@@ -70,7 +82,7 @@
                 cell.titleLabel.textColor = [UIColor blackColor];
                 break;
         }
-    
+    }
     
     // Tell the tableView to use this cell
     return cell;
@@ -88,13 +100,33 @@
         Todo *toDo = self.taskArray[indexPath.row];
         DetailedViewController  *detailedViewController = segue.destinationViewController;
         detailedViewController.toDo = toDo;
+        
        
+    }else if ([segue.identifier isEqualToString:@"ToAddTaskPage"]){
+        AddTaskViewController  *addTaskViewController = segue.destinationViewController;
+        addTaskViewController.delegate = self;
     }
     
-    //
-    
+}
+- (void)saveTask:(Todo *)toDo{
+    [self.taskArray addObject:toDo];
+    [self.tableView reloadData];
 }
 
+- (IBAction)didSwipeRight:(UISwipeGestureRecognizer*)sender {
+    //add tableView to gesture
+    //set the color of the text to grey
+    CGPoint point = [sender locationInView:self.tableView];
+    NSIndexPath *index = [self.tableView indexPathForRowAtPoint:point];
+// get the todo item from the array
+    Todo *toDo = self.taskArray[index.row];
+    toDo.isCompleted = YES;
+    // change the todo item
+    [self.tableView reloadData];
+    //reload tableview
+    
+    
+}
 
 
 @end

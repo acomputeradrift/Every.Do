@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddTaskViewController.h"
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>//protocol
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SaveTaskProtocol>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 

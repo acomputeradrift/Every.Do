@@ -6,12 +6,20 @@
 //  Copyright © 2018 Jamie. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
+#import "Todo.h"
 
-// delegate protocol here
 
-@interface AddTaskViewController : ViewController
+@protocol SaveTaskProtocol
 
-// delegate protocol here
+-(void)saveTask: (Todo*)toDo;
+
+
+@end
+
+@interface AddTaskViewController : UIViewController
+
+@property id<SaveTaskProtocol>delegate;
+
 
 @end

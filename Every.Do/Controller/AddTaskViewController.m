@@ -8,7 +8,11 @@
 
 #import "AddTaskViewController.h"
 
+
 @interface AddTaskViewController () 
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
+@property (weak, nonatomic) IBOutlet UITextField *priorityTextField;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionText;
 
 @end
 
@@ -24,7 +28,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+- (IBAction)saveButtonPressed:(id)sender {
+    Todo *toDo = [[Todo alloc] initWithTitle:self.titleTextField.text withDescription:self.descriptionText.text withPriority:[self.priorityTextField.text integerValue] andisCompleted:YES];
+    [self.delegate saveTask:toDo];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+ /*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
