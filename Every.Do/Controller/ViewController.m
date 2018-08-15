@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    Todo *task1 = [[Todo alloc] initWithTitle:@"Save the world" withDescription:@"Come up with a plan for being a hero"  withPriority:1 andisCompleted:NO];
+    Todo *task1 = [[Todo alloc] initWithTitle:@"Save the world" withDescription:@"Workarounds exist. For example, the structure can be set up so that individual shareholders hold the growth shares in OpCo, while HoldCo holds shares that carry only a right to dividends. That way, the business in OpCo can be sold by the individual shareholder to reap the capital gains and the capital gains exemption, while before that one-time event, the ongoing income stream from the business is sent up, tax free, to HoldCo"  withPriority:1 andisCompleted:NO];
     Todo *task2 = [[Todo alloc] initWithTitle:@"Brush my teeth" withDescription:@"Get the back molars!"  withPriority:2 andisCompleted:NO];
     Todo *task3 = [[Todo alloc] initWithTitle:@"Shave my back" withDescription:@"Further my relation to gorilla with hair removal"  withPriority:3 andisCompleted:YES];
     self.taskArray = [[NSMutableArray alloc] init];
@@ -90,6 +90,8 @@
         detailedViewController.toDo = toDo;
        
     }
+    
+    //
     
 }
 
