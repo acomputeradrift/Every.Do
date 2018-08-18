@@ -14,7 +14,7 @@
 @interface ViewController ()
 
 
-@property (nonatomic, strong) NSMutableArray *taskArray;
+@property (nonatomic, strong) NSArray *taskArray;
 
 @end
 
@@ -25,10 +25,11 @@
     Todo *task1 = [[Todo alloc] initWithTitle:@"Save the world" withDescription:@"Workarounds exist. For example, the structure can be set up so that individual shareholders hold the growth shares in OpCo, while HoldCo holds shares that carry only a right to dividends. That way, the business in OpCo can be sold by the individual shareholder to reap the capital gains and the capital gains exemption, while before that one-time event, the ongoing income stream from the business is sent up, tax free, to HoldCo"  withPriority:1 andisCompleted:NO];
     Todo *task2 = [[Todo alloc] initWithTitle:@"Brush my teeth" withDescription:@"Get the back molars!"  withPriority:2 andisCompleted:NO];
     Todo *task3 = [[Todo alloc] initWithTitle:@"Shave my back" withDescription:@"Further my relation to gorilla with hair removal"  withPriority:3 andisCompleted:YES];
-    self.taskArray = [[NSMutableArray alloc] init];
-    [self.taskArray addObject:task1];
-    [self.taskArray addObject:task2];
-    [self.taskArray addObject:task3];
+    self.taskArray = @[task1, task2, task3];
+//    [self.taskArray arrayByAddingObject:task1];
+//    [self.taskArray arrayByAddingObject:task2];
+//    [self.taskArray arrayByAddingObject:task3];
+   
     
     
     
@@ -111,7 +112,7 @@
     
 }
 - (void)saveTask:(Todo *)toDo{
-    [self.taskArray addObject:toDo];
+    self.taskArray =[self.taskArray arrayByAddingObject:toDo];
     [self.tableView reloadData];
 }
 
@@ -124,7 +125,8 @@
     Todo *toDo = self.taskArray[index.row];
     toDo.isCompleted = YES;
     // change the todo item
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
+    [self sortAndReload];
     //reload tableview
 }
 - (IBAction)didSwipeLEft:(UISwipeGestureRecognizer *)sender {
@@ -134,6 +136,14 @@
     Todo *toDo = self.taskArray[index.row];
     toDo.isCompleted = NO;
     // change the todo item
+    //[self.tableView reloadData];
+    [self sortAndReload];
+}
+
+-(void) sortAndReload {
+    self.taskArray =  [self.taskArray sortedArrayUsingComparator:^NSComparisonResult(Todo*  _Nonnull obj1, Todo*  _Nonnull obj2) {
+        return obj1.isCompleted && !obj2.isCompleted;
+    }];
     [self.tableView reloadData];
 }
 
